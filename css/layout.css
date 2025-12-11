@@ -1,0 +1,28 @@
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.col {
+    flex: 1;
+    padding: 0.5rem;
+}
+
+/* Flex utilities */
+.fx { display: flex; }
+.fx-c { display: flex; flex-direction: column; }
+.fx-jc-c { justify-content: center; }
+.fx-ai-c { align-items: center; }
+.fx-jc-sb { justify-content: space-between; }
+
+/* Grid utilities */
+.grid { display: grid; gap: 1rem; }
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-4 { grid-template-columns: repeat(4, 1fr); }

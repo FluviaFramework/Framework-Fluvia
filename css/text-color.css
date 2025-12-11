@@ -1,0 +1,39 @@
+/* RED */
+.txt-red { color: #FF0000; }
+.txt-dark-red { color: #9E0000; }
+
+/* BLUE */
+.txt-blue { color: #0008FF; }
+.txt-dark-blue { color: #00079E; }
+.txt-light-blue { color: #00AAFF; }
+
+/* GREEN */
+.txt-lime-green { color: #00FF00; }
+.txt-green { color: #00BA00; }
+.txt-dark-green { color: #004700; }
+
+/* YELLOW */
+.txt-yellow { color: #FFF700; }
+
+/* ORANGE */
+.txt-orange { color: #FFA100; }
+.txt-dark-orange { color: #FF7700; }
+
+/* PURPLE */
+.txt-light-purple { color: #B700FF; }
+.txt-purple { color: #7200A3; }
+.txt-dark-purple { color: #320047; }
+
+/* PINK */
+.txt-light-pink { color: #FF5CE4; }
+.txt-pink { color: #FF00D4; }
+.txt-dark-pink { color: #D100AE; }
+
+/* GREY */
+.txt-light-grey { color: #ADADAD; }
+.txt-grey { color: #696969; }
+.txt-dark-grey { color: #242424; }
+
+/* BLACK & WHITE */
+.txt-white { color: #ffffff; }
+.txt-black { color: #000000; }

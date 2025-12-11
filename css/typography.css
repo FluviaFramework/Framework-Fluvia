@@ -1,0 +1,18 @@
+.txt-xs { font-size: 12px; }
+.txt-sm { font-size: 14px; }
+.txt-md { font-size: 16px; }
+.txt-lg { font-size: 20px; }
+.txt-xl { font-size: 28px; }
+.txt-xxl { font-size: 36px; }
+
+.txt-light { font-weight: 300; }
+.txt-normal { font-weight: 400; }
+.txt-bold { font-weight: 700; }
+
+.txt-center { text-align: center; }
+.txt-left { text-align: left; }
+.txt-right { text-align: right; }
+
+.txt-uppercase { text-transform: uppercase; }
+.txt-lowercase { text-transform: lowercase; }
+.txt-capitalize { text-transform: capitalize; }

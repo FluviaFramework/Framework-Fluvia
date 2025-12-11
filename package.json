@@ -1,0 +1,20 @@
+{
+  "name": "fluvia-css",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "concat -f css/*.css -o dist/fluviacss.css",
+    "build:min": "postcss dist/fluviacss.css -o dist/fluviacss.min.css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "concat-cli": "^4.0.0",
+    "cssnano": "^7.1.2",
+    "postcss": "^8.5.6",
+    "postcss-cli": "^11.0.1"
+  }
+}

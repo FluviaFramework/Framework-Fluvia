@@ -1,0 +1,40 @@
+/* RED */
+.bg-red {background-color: #FF0000;}
+.bg-dark-red {background-color: #9E0000;}
+
+/* BLUE */
+.bg-blue {background-color: #0008FF;}
+.bg-dark-blue {background-color: #00079E;}
+.bg-light-blue {background-color: #00AAFF;}
+
+/* GREEN */
+.bg-lime-green {background-color: #00FF00;}
+.bg-green {background-color: #00BA00;}
+.bg-dark-green {background-color: #004700;}
+
+
+/* YELLOW */
+.bg-yellow {background-color: #FFF700;}
+
+/* ORANGE */
+.bg-orange {background-color: #FFA100;}
+.bg-dark-orange {background-color: #FF7700;}
+
+/* PURPLE */
+.bg-light-purple {background-color: #B700FF;}
+.bg-purple {background-color: #7200A3;}
+.bg-dark-purple {background-color: #320047;}
+
+/* PINK */
+.bg-light-pink {background-color: #FF5CE4;}
+.bg-pink {background-color: #FF00D4;}
+.bg-dark-pink {background-color: #D100AE;}
+
+/* GREY */
+.bg-light-grey {background-color: #ADADAD;}
+.bg-grey {background-color: #696969;}
+.bg-dark-grey {background-color: #242424;}
+
+/* BLACK & WHITE */
+.bg-white {background-color: #ffffff;}
+.bg-black {background-color: #000000;}
