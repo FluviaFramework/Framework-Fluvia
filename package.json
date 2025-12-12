@@ -1,6 +1,6 @@
 {
   "name": "fluvia-css",
-  "version": "1.0.2",
+  "version": "1.0.1",
   "description": "",
   "main": "dist/fluviacss.min.css",
   "scripts": {
