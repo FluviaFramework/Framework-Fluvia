@@ -1,13 +1,17 @@
 {
   "name": "fluvia-css",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "dist/fluviacss.min.css",
   "scripts": {
     "build": "concat -f css/*.css -o dist/fluviacss.css",
     "build:min": "postcss dist/fluviacss.css -o dist/fluviacss.min.css"
   },
-  "keywords": ["css", "framework", "utilities"],
+  "keywords": [
+    "css",
+    "framework",
+    "utilities"
+  ],
   "author": "Esteban DERENNE",
   "license": "MIT",
   "type": "commonjs",
