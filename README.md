@@ -21,7 +21,6 @@ Include the stylesheet in the `<head>` of your HTML document:
 <link rel="stylesheet" href="[https://cdn.jsdelivr.net/npm/fluvia@latest/dist/fluvia.min.css](https://cdn.jsdelivr.net/npm/fluvia@latest/dist/fluvia.min.css)">
 
 <script src="https://cdn.jsdelivr.net/npm/fluvia@1.0.0/dist/fluvia.min.js"></script>
-
 ```
 
 ### Via NPM
@@ -134,6 +133,74 @@ Use the `.bg-*` classes to apply background colors to any element.
 | **Small** | `.shadow-sm` |
 | **Medium** | `.shadow-md` |
 | **Large** | `.shadow-lg` |
+
+---
+
+## JavaScript Utilities
+
+Fluvia also provides **JavaScript modules** to handle advanced interactions and features, such as Discord forms, notifications, animations, and more.
+
+### Discord Module
+
+Easily send form data to a Discord webhook. The module provides callbacks to handle success, errors, and display styled notifications.
+
+#### HTML
+
+```html
+<form id="form-discord" class="card">
+  <input name="name" placeholder="Name" required>
+  <input name="email" type="email" placeholder="Email" required>
+  <textarea name="message" placeholder="Message" required></textarea>
+  <button>Send</button>
+</form>
+```
+
+### Example JS
+
+```js
+// Initialize the Discord module
+const discord = ui.modules.discord({
+  webhook: "https://discord.com/api/webhooks/XXXX/XXXX",
+  title: "📩 New Message",
+  fields: {
+    name: "Name",
+    email: "Email",
+    message: "Message"
+  },
+  log: true,          // Logs the payload in the console
+  showPopup: true,    // Displays a styled popup on submission
+  onSuccess: () => console.log("Message sent successfully!"),
+  onError: (err) => console.error("Error sending message:", err)
+});
+
+// Bind the form
+const form = document.querySelector("#form-discord");
+form.addEventListener("submit", e => {
+  e.preventDefault();
+  discord.send(form);
+});
+```
+
+### Available Options
+
+| Option       | Type     | Default       | Description |
+|-------------|---------|---------------|-------------|
+| `webhook`   | string  | —             | Discord webhook URL (required) |
+| `title`     | string  | `"Formulaire"` | Title of the Discord embed |
+| `fields`    | object  | `{}`          | Object mapping form fields `{ fieldName: label }` |
+| `log`       | boolean | `false`       | Logs the payload in the console (true/false) |
+| `showPopup` | boolean | `false`       | Enables a styled popup on submission (true/false) |
+| `onSuccess` | function| —             | Callback triggered after successful submission |
+| `onError`   | function| —             | Callback triggered in case of submission error |
+
+### Visual Example
+
+The popup will display by default:
+
+- ✅ Message sent! (success)
+- ❌ Error sending message! (error)
+
+> You can customize the popup style via CSS by targeting `#ui-discord-popup`.
 
 
 
