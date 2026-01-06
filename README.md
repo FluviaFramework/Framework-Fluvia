@@ -14,15 +14,11 @@
 
 ## Installation
 
-To start using **MyFramework CSS**, simply include the stylesheet in the `<head>` of your HTML document:
+### Via CDN
+Include the stylesheet in the `<head>` of your HTML document:
 
 ```html
-<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/fluvia@latest/dist/fluvia.min.css'>
-
----
-
-npm install fluvia
-
+<link rel="stylesheet" href="[https://cdn.jsdelivr.net/npm/fluvia@latest/dist/fluvia.min.css](https://cdn.jsdelivr.net/npm/fluvia@latest/dist/fluvia.min.css)">
 ```
 
 ---
@@ -130,5 +126,6 @@ Use the `.bg-*` classes to apply background colors to any element.
 | **Small** | `.shadow-sm` |
 | **Medium** | `.shadow-md` |
 | **Large** | `.shadow-lg` |
+
 
 
