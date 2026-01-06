@@ -1,6 +1,6 @@
 {
   "name": "fluvia",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "Framework CSS + JS utilities",
   "main": "dist/fluvia.min.js",
   "browser": "dist/fluvia.min.js",

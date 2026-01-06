@@ -9,6 +9,8 @@
 7. [Typography](#typography)
 8. [Display & Position](#display--position)
 9. [Shadows](#shadows)
+10. [Discord Module](#discord-module)
+
 
 ---
 
