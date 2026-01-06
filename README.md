@@ -18,6 +18,7 @@ To start using **MyFramework CSS**, simply include the stylesheet in the `<head>
 
 ```html
 <link rel="stylesheet" href="myframework.css">
+```
 
 ### Background Colors
 
@@ -34,3 +35,4 @@ Use the `.bg-*` classes to apply background colors to any element.
 | **Pink** | `.bg-light-pink`, `.bg-pink`, `.bg-dark-pink` |
 | **Grey** | `.bg-light-grey`, `.bg-grey`, `.bg-dark-grey` |
 | **Monochrome** | `.bg-black`, `.bg-white` |
+
