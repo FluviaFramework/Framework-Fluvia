@@ -1,11 +1,11 @@
 {
-  "name": "fluvia-css",
-  "version": "1.0.1",
+  "name": "fluvia",
+  "version": "1.0.0",
   "description": "",
-  "main": "dist/fluviacss.min.css",
+  "main": "dist/fluvia.min.css",
   "scripts": {
-    "build": "concat -f css/*.css -o dist/fluviacss.css",
-    "build:min": "postcss dist/fluviacss.css -o dist/fluviacss.min.css"
+    "build": "concat -f css/*.css -o dist/fluvia.css",
+    "build:min": "postcss dist/fluviacss.css -o dist/fluvia.min.css"
   },
   "keywords": [
     "css",
