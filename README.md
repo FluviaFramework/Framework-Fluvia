@@ -21,6 +21,11 @@ Include the stylesheet in the `<head>` of your HTML document:
 <link rel="stylesheet" href="[https://cdn.jsdelivr.net/npm/fluvia@latest/dist/fluvia.min.css](https://cdn.jsdelivr.net/npm/fluvia@latest/dist/fluvia.min.css)">
 ```
 
+### Via NPM
+Install the package into your project using the following command:
+
+>> npm install fluvia
+
 ---
 
 ### Background Colors
@@ -126,6 +131,7 @@ Use the `.bg-*` classes to apply background colors to any element.
 | **Small** | `.shadow-sm` |
 | **Medium** | `.shadow-md` |
 | **Large** | `.shadow-lg` |
+
 
 
 
