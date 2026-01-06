@@ -1,17 +1,23 @@
 {
   "name": "fluvia",
-  "version": "1.0.0",
-  "description": "",
-  "main": "dist/fluvia.min.css",
+  "version": "2.0.1",
+  "description": "Framework CSS + JS utilities",
+  "main": "dist/fluvia.min.js",
+  "browser": "dist/fluvia.min.js",
+  "unpkg": "dist/fluvia.min.js",
+  "jsdelivr": "dist/fluvia.min.js",
   "scripts": {
-    "build": "concat -f css/*.css -o dist/fluvia.css",
-    "build:min": "postcss dist/fluviacss.css -o dist/fluvia.min.css"
+    "build:css": "concat-cli -f css/*.css -o dist/fluvia.css",
+    "build:css:min": "postcss dist/fluvia.css -o dist/fluvia.min.css",
+    "build:js": "concat-cli -f js/*.js -o dist/fluvia.js",
+    "build:js:min": "terser dist/fluvia.js -o dist/fluvia.min.js -c -m"
   },
-  "keywords": [
-    "css",
-    "framework",
-    "utilities"
+  "files": [
+    "dist/*",
+    "js/*",
+    "css/*"
   ],
+  "keywords": ["css","js","framework","utilities"],
   "author": "Esteban DERENNE",
   "license": "MIT",
   "type": "commonjs",
@@ -19,6 +25,7 @@
     "concat-cli": "^4.0.0",
     "cssnano": "^7.1.2",
     "postcss": "^8.5.6",
-    "postcss-cli": "^11.0.1"
+    "postcss-cli": "^11.0.1",
+    "terser": "^5.19.1"
   }
 }
