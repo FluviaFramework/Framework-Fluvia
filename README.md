@@ -24,7 +24,7 @@ Include the stylesheet in the `<head>` of your HTML document:
 ### Via NPM
 Install the package into your project using the following command:
 
->> npm install fluvia
+> npm install fluvia
 
 ---
 
@@ -131,6 +131,7 @@ Use the `.bg-*` classes to apply background colors to any element.
 | **Small** | `.shadow-sm` |
 | **Medium** | `.shadow-md` |
 | **Large** | `.shadow-lg` |
+
 
 
 
