@@ -19,6 +19,7 @@ To start using **MyFramework CSS**, simply include the stylesheet in the `<head>
 ```html
 <link rel="stylesheet" href="myframework.css">
 ```
+---
 
 ### Background Colors
 
@@ -36,3 +37,90 @@ Use the `.bg-*` classes to apply background colors to any element.
 | **Grey** | `.bg-light-grey`, `.bg-grey`, `.bg-dark-grey` |
 | **Monochrome** | `.bg-black`, `.bg-white` |
 
+---
+
+### Borders
+
+#### Border Styles & Widths
+
+| Property | Available Classes |
+| :--- | :--- |
+| **Styles** | `.b-solid`, `.b-dashed`, `.b-dotted` |
+| **Widths** | `.b-1` (1px), `.b-2` (2px), `.b-3` (3px) |
+
+---
+
+### Container and Grids
+
+#### Grid Utilities
+
+| Layout Type | Available Classes |
+| :--- | :--- |
+| **Grid Base** | `.grid` (display: grid with 1rem gap) |
+| **2 Columns** | `.grid-2` |
+| **3 Columns** | `.grid-3` |
+| **4 Columns** | `.grid-4` |
+
+---
+
+### Flexbox Utilities
+
+| Property | Available Classes |
+| :--- | :--- |
+| **Display** | `.fx` (flex) |
+| **Direction** | `.fx-c` (column) |
+| **Justify** | `.fx-jc-c` (center), `.fx-jc-sb` (space-between) |
+| **Align** | `.fx-ai-c` (center) |
+
+---
+
+### Spacing Utilities
+
+#### Margin & Padding Scale
+
+| Scale | Value |
+| :--- | :--- |
+| **0** | 0px |
+| **1** | 4px |
+| **2** | 8px |
+| **3** | 16px |
+| **4** | 32px |
+
+---
+
+### Typography
+
+#### Font Sizes & Weights
+
+| Property | Available Classes |
+| :--- | :--- |
+| **Sizes** | `.txt-xs`, `.txt-sm`, `.txt-md`, `.txt-lg`, `.txt-xl`, `.txt-xxl` |
+| **Weights** | `.txt-light` (300), `.txt-normal` (400), `.txt-bold` (700) |
+
+#### Alignment & Transform
+
+| Property | Available Classes |
+| :--- | :--- |
+| **Alignment** | `.txt-left`, `.txt-center`, `.txt-right` |
+| **Transform** | `.txt-uppercase`, `.txt-lowercase`, `.txt-capitalize` |
+
+---
+
+### Display & Position
+
+| Property | Available Classes |
+| :--- | :--- |
+| **Display** | `.d-block`, `.d-inline`, `.d-inline-block`, `.d-none` |
+| **Position** | `.pos-rel`, `.pos-abs`, `.pos-fixed` |
+| **Overflow** | `.overflow-hidden`, `.overflow-scroll` |
+| **Z-Index** | `.z-0`, `.z-10`, `.z-20` |
+
+---
+
+### Shadows
+
+| Shadow Size | Available Classes |
+| :--- | :--- |
+| **Small** | `.shadow-sm` |
+| **Medium** | `.shadow-md` |
+| **Large** | `.shadow-lg` |
