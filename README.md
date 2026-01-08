@@ -20,7 +20,7 @@
 Include the stylesheet in the `<head>` of your HTML document:
 
 ```html
-<link rel="stylesheet" href="[https://cdn.jsdelivr.net/npm/fluvia@latest/dist/fluvia.min.css](https://cdn.jsdelivr.net/npm/fluvia@latest/dist/fluvia.min.css)">
+<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/fluvia@latest/dist/fluvia.min.css'>
 
 <script src="https://cdn.jsdelivr.net/npm/fluvia@1.0.0/dist/fluvia.min.js"></script>
 ```
