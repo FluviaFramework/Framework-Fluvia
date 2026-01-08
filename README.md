@@ -140,13 +140,16 @@ Use the `.bg-*` classes to apply background colors to any element.
 
 ## JavaScript Utilities
 
-Fluvia also provides **JavaScript modules** to handle advanced interactions and features, such as Discord forms, notifications, animations, and more.
+Fluvia also provides **JavaScript modules** to handle advanced interactions and features such as Discord forms, notifications, and interactive UI behaviors.
 
 ### Discord Module
 
-Easily send form data to a Discord webhook. The module provides callbacks to handle success, errors, and display styled notifications.
+Easily send form data to a Discord webhook.  
+The module supports confirmations, customizable messages, callbacks, and includes a **default styled popup** that can be overridden with CSS.
 
-#### HTML
+---
+
+### HTML
 
 ```html
 <form id="form-discord" class="card">
@@ -155,6 +158,7 @@ Easily send form data to a Discord webhook. The module provides callbacks to han
   <textarea name="message" placeholder="Message" required></textarea>
   <button>Send</button>
 </form>
+
 ```
 
 ### Example JS
@@ -162,45 +166,50 @@ Easily send form data to a Discord webhook. The module provides callbacks to han
 ```js
 // Initialize the Discord module
 const discord = ui.modules.discord({
-  webhook: "https://discord.com/api/webhooks/XXXX/XXXX",
-  title: "📩 New Message",
-  fields: {
-    name: "Name",
-    email: "Email",
-    message: "Message"
-  },
-  log: true,          // Logs the payload in the console
-  showPopup: true,    // Displays a styled popup on submission
-  onSuccess: () => console.log("Message sent successfully!"),
-  onError: (err) => console.error("Error sending message:", err)
+    webhook: "https://discord.com/api/webhooks/XXXX/XXXX",
+    title: "📩 New Message",
+
+    fields: {
+        name: "Name",
+        email: "Email",
+        message: "Message"
+    },
+
+    log: true,
+    confirm: true,
+    showPopup: true,
+
+    messages: {
+        success: "Message sent successfully!",
+        error: "Error sending message!",
+        confirm: "Do you want to send this message?"
+    },
+
+    onSuccess: () => console.log("Message sent successfully!"),
+    onError: (err) => console.error("Error sending message:", err)
 });
 
 // Bind the form
 const form = document.querySelector("#form-discord");
 form.addEventListener("submit", e => {
-  e.preventDefault();
-  discord.send(form);
+    e.preventDefault();
+    discord.send(form);
 });
 ```
 
 ### Available Options
 
-| Option       | Type     | Default       | Description |
-|-------------|---------|---------------|-------------|
-| `webhook`   | string  | —             | Discord webhook URL (required) |
-| `title`     | string  | `"Formulaire"` | Title of the Discord embed |
-| `fields`    | object  | `{}`          | Object mapping form fields `{ fieldName: label }` |
-| `log`       | boolean | `false`       | Logs the payload in the console (true/false) |
-| `showPopup` | boolean | `false`       | Enables a styled popup on submission (true/false) |
-| `onSuccess` | function| —             | Callback triggered after successful submission |
-| `onError`   | function| —             | Callback triggered in case of submission error |
-
-### Visual Example
-
-The popup will display by default:
-
-- ✅ Message sent! (success)
-- ❌ Error sending message! (error)
+| Option       | Type     | Default | Description |
+|-------------|----------|---------|-------------|
+| `webhook`   | string   | —       | Discord webhook URL (required) |
+| `title`     | string   | `"Form"` | Title of the Discord embed |
+| `fields`    | object   | `{}`    | Object mapping form fields `{ fieldName: label }` |
+| `log`       | boolean  | `false` | Logs the payload in the console |
+| `confirm`   | boolean  | `false` | Enables a confirmation dialog before sending |
+| `showPopup` | boolean  | `false` | Displays a styled popup after submission |
+| `messages`  | object   | `{}`    | Custom messages for success, error, and confirm |
+| `onSuccess` | function | —       | Callback triggered after successful submission |
+| `onError`   | function | —       | Callback triggered in case of submission error |
 
 > You can customize the popup style via CSS by targeting `#ui-discord-popup`.
 

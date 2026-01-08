@@ -1,49 +1,74 @@
 (function(global){
     const UI = global.ui || (global.ui = { modules:{}, active:{} });
 
+    function injectBaseStyles() {
+        if (document.getElementById("ui-discord-style")) return;
+
+        const style = document.createElement("style");
+        style.id = "ui-discord-style";
+        style.textContent = `
+#ui-discord-popup {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+  min-width: 220px;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  color: #fff;
+  background: #333;
+  opacity: 0;
+  transform: translateY(-20px);
+  pointer-events: none;
+  transition: opacity .3s ease, transform .3s ease;
+}
+#ui-discord-popup.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+#ui-discord-popup[data-type="success"] {
+  background: #4caf50;
+}
+#ui-discord-popup[data-type="error"] {
+  background: #f44336;
+}
+        `;
+        document.head.appendChild(style);
+    }
+
     UI.modules.discord = function(config = {}) {
         if(!config.webhook){
-            console.warn("[ui.discord] webhook manquant");
+            console.warn("[ui.discord] webhook missing");
             return;
         }
 
-        // Création d'un container popup global si nécessaire
-        function createPopupContainer() {
+        injectBaseStyles();
+
+        const messages = {
+            success: config.messages?.success || "Success",
+            error: config.messages?.error || "Error",
+            confirm: config.messages?.confirm || "Confirm?"
+        };
+
+        function createPopup() {
             let popup = document.getElementById("ui-discord-popup");
             if(!popup){
                 popup = document.createElement("div");
                 popup.id = "ui-discord-popup";
                 document.body.appendChild(popup);
-                popup.style.position = "fixed";
-                popup.style.top = "20px";
-                popup.style.right = "20px";
-                popup.style.zIndex = "9999";
-                popup.style.minWidth = "200px";
-                popup.style.padding = "1rem 1.5rem";
-                popup.style.borderRadius = "8px";
-                popup.style.color = "#fff";
-                popup.style.fontWeight = "bold";
-                popup.style.boxShadow = "0 2px 10px rgba(0,0,0,0.2)";
-                popup.style.opacity = "0";
-                popup.style.transition = "opacity 0.3s, transform 0.3s";
-                popup.style.transform = "translateY(-20px)";
             }
             return popup;
         }
 
-        function showPopup(message, success = true, duration = 3000) {
-            if(!config.showPopup) return; // désactivé côté projet
+        function showPopup(text, success = true) {
+            if(!config.showPopup) return;
+            const popup = createPopup();
+            popup.textContent = text;
+            popup.dataset.type = success ? "success" : "error";
+            popup.classList.add("is-visible");
 
-            const popup = createPopupContainer();
-            popup.textContent = message;
-            popup.style.backgroundColor = success ? "#4caf50" : "#f44336";
-            popup.style.opacity = "1";
-            popup.style.transform = "translateY(0)";
-
-            setTimeout(() => {
-                popup.style.opacity = "0";
-                popup.style.transform = "translateY(-20px)";
-            }, duration);
+            setTimeout(() => popup.classList.remove("is-visible"), 3000);
         }
 
         function collect(form){
@@ -53,46 +78,36 @@
         }
 
         function send(form){
-            if(config.confirm && !window.confirm(config.confirmText || "Voulez-vous envoyer le message ?")){
-                return; // annulé par l'utilisateur
-            }
+            if(config.confirm && !window.confirm(messages.confirm)) return;
 
             const data = collect(form);
             const fields = Object.entries(config.fields||{}).map(([k,l])=>({
-                name:l,
-                value:data[k]||"—",
-                inline:false
+                name: l,
+                value: data[k] || "—",
+                inline: false
             }));
-
-            const payload = { embeds:[{ title:config.title||"Formulaire", fields }] };
-
-            if(config.log) console.log("[ui.discord] payload:", payload);
-
-            form.classList.add("is-loading");
 
             fetch(config.webhook,{
                 method:"POST",
                 headers:{"Content-Type":"application/json"},
-                body: JSON.stringify(payload)
+                body: JSON.stringify({
+                    embeds:[{ title:config.title||"Form", fields }]
+                })
             })
                 .then(()=>{
-                    form.classList.remove("is-loading");
-                    form.classList.add("is-success");
                     form.reset();
-                    showPopup("Message envoyé !", true);
-                    if(config.onSuccess) config.onSuccess();
+                    showPopup(messages.success, true);
+                    config.onSuccess?.();
                 })
                 .catch(err=>{
-                    form.classList.remove("is-loading");
-                    form.classList.add("is-error");
-                    showPopup("Erreur lors de l'envoi !", false);
-                    if(config.onError) config.onError(err);
-                    console.error("[ui.discord] error:", err);
+                    showPopup(messages.error, false);
+                    config.onError?.(err);
+                    console.error(err);
                 });
         }
 
         return { send };
-    }
+    };
 
     global.ui = UI;
 })(window);

@@ -17,7 +17,12 @@
     "js/*",
     "css/*"
   ],
-  "keywords": ["css","js","framework","utilities"],
+  "keywords": [
+    "css",
+    "js",
+    "framework",
+    "utilities"
+  ],
   "author": "Esteban DERENNE",
   "license": "MIT",
   "type": "commonjs",
@@ -26,6 +31,6 @@
     "cssnano": "^7.1.2",
     "postcss": "^8.5.6",
     "postcss-cli": "^11.0.1",
-    "terser": "^5.19.1"
+    "terser": "^5.44.1"
   }
 }
